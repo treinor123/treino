@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treino Mobile - Atualizado</title>
+    <style>
+        :root {
+            --bg-color: #0a0f1a;
+            --card-bg: #161e2d;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+            --accent-purple: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 15px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.5rem;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-main);
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 18px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-left: 6px solid transparent;
+        }
+
+        /* Cores Temáticas Mantidas nos Dias */
+        .segunda { border-left-color: var(--accent-blue); }
+        .terca { border-left-color: var(--accent-green); }
+        .quarta { border-left-color: var(--accent-red); }
+        .quinta { border-left-color: var(--accent-yellow); }
+        .sexta { border-left-color: var(--accent-purple); }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .day-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #2d3748;
+            margin-left: 10px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        li {
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.03);
+            padding: 8px;
+            border-radius: 6px;
+        }
+
+        .obs {
+            margin-top: 12px;
+            font-size: 0.8rem;
+            background: rgba(0,0,0,0.3);
+            padding: 10px;
+            border-radius: 8px;
+            color: #cbd5e1;
+            border-left: 2px solid #475569;
+        }
+
+        @media (max-width: 400px) {
+            ul { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>💪 Meu Treino</h1>
+
+    <div class="container">
+        <div class="card segunda">
+            <div class="day-header">
+                <span class="day-title">Segunda</span>
+                <span class="subtitle" style="color: var(--accent-blue)">Ombro + Quad</span>
+            </div>
+            <div class="section">
+                <div class="section-title">Superior</div>
+                <ul><li>Desenvolv.</li><li>Lateral</li><li>Frontal</li><li>Trapézio</li></ul>
+            </div>
+            <div class="section">
+                <div class="section-title">Inferior</div>
+                <ul><li>Hack / Agacho</li><li>Extensora</li><li>Panturrilha</li></ul>
+            </div>
+            <div class="obs">💪 Antebraço (Moderado): Rosca punho + isometria.</div>
+        </div>
+
+        <div class="card terca">
+            <div class="day-header">
+                <span class="day-title">Terça</span>
+                <span class="subtitle" style="color: var(--accent-green)">Costas + Post</span>
+            </div>
+            <div class="section">
+                <div class="section-title">Superior</div>
+                <ul><li>Puxada</li><li>Remada curvada</li><li>Remada baixa</li><li>Bíceps barra</li></ul>
+            </div>
+            <div class="section">
+                <div class="section-title">Inferior</div>
+                <ul><li>Mesa flexora</li><li>Stiff</li><li>Glúteo</li></ul>
+            </div>
+            <div class="obs">⚠️ Pegada forte já ativa antebraço.</div>
+        </div>
+
+        <div class="card quarta">
+            <div class="day-header">
+                <span class="day-title">Quarta</span>
+                <span class="subtitle" style="color: var(--accent-red)">Peito + Quad</span>
+            </div>
+            <div class="section">
+                <div class="section-title">Superior</div>
+                <ul><li>Supino reto</li><li>Inclinado</li><li>Crucifixo</li><li>Tríceps corda</li></ul>
+            </div>
+            <div class="section">
+                <div class="section-title">Inferior</div>
+                <ul><li>Agachamento</li><li>Leg press</li><li>Extensora</li><li>Panturrilha</li></ul>
+            </div>
+            <div class="obs">👉 Antebraço Leve: Rosca punho e inversa.</div>
+        </div>
+
+        <div class="card quinta">
+            <div class="day-header">
+                <span class="day-title">Quinta</span>
+                <span class="subtitle" style="color: var(--accent-yellow)">Peito + Post</span>
+            </div>
+            <div class="section">
+                <div class="section-title">Superior</div>
+                <ul><li>Inclinado</li><li>Cross over</li><li>Paralelas</li><li>Tríceps testa</li></ul>
+            </div>
+            <div class="section">
+                <div class="section-title">Inferior</div>
+                <ul><li>Stiff leve</li><li>Flexora</li><li>Glúteo</li></ul>
+            </div>
+            <div class="obs">🧘 Descanso total do antebraço.</div>
+        </div>
+
+        <div class="card sexta">
+            <div class="day-header">
+                <span class="day-title">Sexta</span>
+                <span class="subtitle" style="color: var(--accent-purple)">Costas + Full</span>
+            </div>
+            <div class="section">
+                <div class="section-title">Superior</div>
+                <ul><li>Puxada</li><li>Unilateral</li><li>Bíceps alt.</li></ul>
+            </div>
+            <div class="section">
+                <div class="section-title">Inferior</div>
+                <ul><li>Agacho</li><li>Leg press</li><li>Flexora</li><li>Panturrilha</li></ul>
+            </div>
+            <div class="obs">🔥 Antebraço Pesado: Farmer's Walk e Rosca Inversa.</div>
+        </div>
+    </div>
+
+</body>
+</html>
