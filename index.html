@@ -3,231 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Treino Mobile - Atualizado</title>
+    <title>Meu Treino Semanal</title>
     <style>
         :root {
-            --bg-color: #0a0f1a;
-            --card-bg: #161e2d;
-            --text-main: #ffffff;
-            --text-dim: #94a3b8;
-            --accent-blue: #3b82f6;
-            --accent-green: #10b981;
-            --accent-red: #ef4444;
-            --accent-yellow: #f59e0b;
-            --accent-purple: #8b5cf6;
-        }
-
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
+            --primary: #ff4d4d;
+            --secondary: #2d2d2d;
+            --bg: #121212;
+            --text: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             margin: 0;
-            padding: 15px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
             text-align: center;
-            font-size: 1.5rem;
-            margin: 20px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-main);
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 30px;
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 1200px;
         }
 
         .card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
-            padding: 18px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            border-left: 6px solid transparent;
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 20px;
+            border-left: 5px solid var(--primary);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
-        /* Cores Temáticas Mantidas nos Dias */
-        .segunda { border-left-color: var(--accent-blue); }
-        .terca { border-left-color: var(--accent-green); }
-        .quarta { border-left-color: var(--accent-red); }
-        .quinta { border-left-color: var(--accent-yellow); }
-        .sexta { border-left-color: var(--accent-purple); }
-
-        .day-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
         }
 
-        .day-title {
-            font-size: 1.3rem;
-            font-weight: 800;
-        }
-
-        .subtitle {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            padding: 4px 8px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-        }
-
-        .section {
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
             display: flex;
             align-items: center;
+            gap: 10px;
         }
 
-        .section-title::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background: #2d3748;
-            margin-left: 10px;
-        }
-
-        ul {
+        .exercise-list {
             list-style: none;
             padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            margin: 15px 0;
         }
 
-        li {
-            font-size: 0.9rem;
-            background: rgba(255,255,255,0.03);
-            padding: 8px;
-            border-radius: 6px;
+        .exercise-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
         }
 
-        .obs {
-            margin-top: 12px;
-            font-size: 0.8rem;
-            background: rgba(0,0,0,0.3);
-            padding: 10px;
-            border-radius: 8px;
-            color: #cbd5e1;
-            border-left: 2px solid #475569;
+        .exercise-item:last-child {
+            border-bottom: none;
         }
 
-        @media (max-width: 400px) {
-            ul { grid-template-columns: 1fr; }
+        .reps {
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 0.85rem;
         }
 
-        @media (min-width: 768px) {
+        .footer-note {
+            grid-column: 1 / -1;
+            text-align: center;
+            background: rgba(255, 77, 77, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-style: italic;
+            border: 1px dashed var(--primary);
+        }
+
+        @media (max-width: 600px) {
             .container {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                max-width: 1000px;
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
 
-    <h1>💪 Meu Treino</h1>
+    <h1>💪 Cronograma de Treino</h1>
 
     <div class="container">
-        <div class="card segunda">
-            <div class="day-header">
-                <span class="day-title">Segunda</span>
-                <span class="subtitle" style="color: var(--accent-blue)">Ombro + Quad</span>
-            </div>
-            <div class="section">
-                <div class="section-title">Superior</div>
-                <ul><li>Desenvolv.</li><li>Lateral</li><li>Frontal</li><li>Trapézio</li></ul>
-            </div>
-            <div class="section">
-                <div class="section-title">Inferior</div>
-                <ul><li>Hack / Agacho</li><li>Extensora</li><li>Panturrilha</li></ul>
-            </div>
-            <div class="obs">💪 Antebraço (Moderado): Rosca punho + isometria.</div>
+        <div class="card">
+            <h2>🔥 SEGUNDA <small>Peito + Tríceps</small></h2>
+            <ul class="exercise-list">
+                <li class="exercise-item"><span>Supino reto</span> <span class="reps">4x8-10</span></li>
+                <li class="exercise-item"><span>Supino inclinado</span> <span class="reps">3x8-10</span></li>
+                <li class="exercise-item"><span>Crucifixo máquina/halter</span> <span class="reps">3x10-12</span></li>
+                <li class="exercise-item"><span>Paralelas (ou mergulho)</span> <span class="reps">3x Falha</span></li>
+                <li class="exercise-item"><span>Tríceps corda</span> <span class="reps">3x10-12</span></li>
+                <li class="exercise-item"><span>Tríceps testa</span> <span class="reps">3x8-10</span></li>
+            </ul>
         </div>
 
-        <div class="card terca">
-            <div class="day-header">
-                <span class="day-title">Terça</span>
-                <span class="subtitle" style="color: var(--accent-green)">Costas + Post</span>
-            </div>
-            <div class="section">
-                <div class="section-title">Superior</div>
-                <ul><li>Puxada</li><li>Remada curvada</li><li>Remada baixa</li><li>Bíceps barra</li></ul>
-            </div>
-            <div class="section">
-                <div class="section-title">Inferior</div>
-                <ul><li>Mesa flexora</li><li>Stiff</li><li>Glúteo</li></ul>
-            </div>
-            <div class="obs">⚠️ Pegada forte já ativa antebraço.</div>
+        <div class="card">
+            <h2>🔥 TERÇA <small>Costas + Bíceps</small></h2>
+            <ul class="exercise-list">
+                <li class="exercise-item"><span>Barra fixa (ou puxada)</span> <span class="reps">4x Falha</span></li>
+                <li class="exercise-item"><span>Remada curvada</span> <span class="reps">3x8-10</span></li>
+                <li class="exercise-item"><span>Remada baixa</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Pulldown</span> <span class="reps">3x10-12</span></li>
+                <li class="exercise-item"><span>Rosca direta</span> <span class="reps">3x8-10</span></li>
+                <li class="exercise-item"><span>Rosca martelo</span> <span class="reps">3x10</span></li>
+            </ul>
         </div>
 
-        <div class="card quarta">
-            <div class="day-header">
-                <span class="day-title">Quarta</span>
-                <span class="subtitle" style="color: var(--accent-red)">Peito + Quad</span>
-            </div>
-            <div class="section">
-                <div class="section-title">Superior</div>
-                <ul><li>Supino reto</li><li>Inclinado</li><li>Crucifixo</li><li>Tríceps corda</li></ul>
-            </div>
-            <div class="section">
-                <div class="section-title">Inferior</div>
-                <ul><li>Agachamento</li><li>Leg press</li><li>Extensora</li><li>Panturrilha</li></ul>
-            </div>
-            <div class="obs">👉 Antebraço Leve: Rosca punho e inversa.</div>
+        <div class="card">
+            <h2>🔥 QUARTA <small>Pernas</small></h2>
+            <ul class="exercise-list">
+                <li class="exercise-item"><span>Agachamento livre</span> <span class="reps">4x8-10</span></li>
+                <li class="exercise-item"><span>Leg press</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Cadeira extensora</span> <span class="reps">3x12</span></li>
+                <li class="exercise-item"><span>Mesa flexora</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Panturrilha em pé</span> <span class="reps">4x12-15</span></li>
+            </ul>
         </div>
 
-        <div class="card quinta">
-            <div class="day-header">
-                <span class="day-title">Quinta</span>
-                <span class="subtitle" style="color: var(--accent-yellow)">Peito + Post</span>
-            </div>
-            <div class="section">
-                <div class="section-title">Superior</div>
-                <ul><li>Inclinado</li><li>Cross over</li><li>Paralelas</li><li>Tríceps testa</li></ul>
-            </div>
-            <div class="section">
-                <div class="section-title">Inferior</div>
-                <ul><li>Stiff leve</li><li>Flexora</li><li>Glúteo</li></ul>
-            </div>
-            <div class="obs">🧘 Descanso total do antebraço.</div>
+        <div class="card">
+            <h2>🔥 QUINTA <small>Ombro + Abdômen</small></h2>
+            <ul class="exercise-list">
+                <li class="exercise-item"><span>Desenvolvimento halter</span> <span class="reps">4x8-10</span></li>
+                <li class="exercise-item"><span>Elevação lateral</span> <span class="reps">3x10-12</span></li>
+                <li class="exercise-item"><span>Elevação frontal</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Encolhimento</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Abdominal infra</span> <span class="reps">3x15</span></li>
+                <li class="exercise-item"><span>Prancha</span> <span class="reps">3x30-60s</span></li>
+            </ul>
         </div>
 
-        <div class="card sexta">
-            <div class="day-header">
-                <span class="day-title">Sexta</span>
-                <span class="subtitle" style="color: var(--accent-purple)">Costas + Full</span>
-            </div>
-            <div class="section">
-                <div class="section-title">Superior</div>
-                <ul><li>Puxada</li><li>Unilateral</li><li>Bíceps alt.</li></ul>
-            </div>
-            <div class="section">
-                <div class="section-title">Inferior</div>
-                <ul><li>Agacho</li><li>Leg press</li><li>Flexora</li><li>Panturrilha</li></ul>
-            </div>
-            <div class="obs">🔥 Antebraço Pesado: Farmer's Walk e Rosca Inversa.</div>
+        <div class="card" style="border-left-color: #ffcc00;">
+            <h2>🔥 SEXTA <small>Full Body</small></h2>
+            <ul class="exercise-list">
+                <li class="exercise-item"><span>Supino ou flexão</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Puxada ou barra</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Agachamento leve</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Elevação lateral</span> <span class="reps">3x12</span></li>
+                <li class="exercise-item"><span>Rosca + tríceps (bi-set)</span> <span class="reps">3x</span></li>
+            </ul>
+        </div>
+
+        <div class="footer-note">
+            👉 <strong>Nota:</strong> O dia de Full Body serve para estimular o corpo todo sem destruir, ajudando no ganho geral (ideal para ectomorfos).
         </div>
     </div>
 
