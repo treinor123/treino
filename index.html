@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Treino Semanal</title>
+    <title>Meu Treino Semanal - Custom</title>
     <style>
         :root {
             --primary: #ff4d4d;
@@ -61,8 +61,14 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .card h2 small {
+            color: #aaa;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
 
         .exercise-list {
@@ -113,65 +119,66 @@
 
     <div class="container">
         <div class="card">
-            <h2>🔥 SEGUNDA <small>Peito + Tríceps</small></h2>
+            <h2>SEGUNDA <small>Superior (Força/Base)</small></h2>
             <ul class="exercise-list">
-                <li class="exercise-item"><span>Supino reto</span> <span class="reps">4x8-10</span></li>
-                <li class="exercise-item"><span>Supino inclinado</span> <span class="reps">3x8-10</span></li>
-                <li class="exercise-item"><span>Crucifixo máquina/halter</span> <span class="reps">3x10-12</span></li>
-                <li class="exercise-item"><span>Paralelas (ou mergulho)</span> <span class="reps">3x Falha</span></li>
-                <li class="exercise-item"><span>Tríceps corda</span> <span class="reps">3x10-12</span></li>
-                <li class="exercise-item"><span>Tríceps testa</span> <span class="reps">3x8-10</span></li>
+                <li class="exercise-item"><span>Supino Máquina</span> <span class="reps">3x 8-10</span></li>
+                <li class="exercise-item"><span>Remada (Lala ou Máquina)</span> <span class="reps">3x 8-10</span></li>
+                <li class="exercise-item"><span>Desenvolvimento (Halter/Máq)</span> <span class="reps">3x 10</span></li>
+                <li class="exercise-item"><span>Pulley Frente (ou Máquina)</span> <span class="reps">3x 10</span></li>
+                <li class="exercise-item"><span>Rosca Bíceps (Barra/Polia)</span> <span class="reps">3x 12</span></li>
+                <li class="exercise-item"><span>Tríceps Corda</span> <span class="reps">3x 12</span></li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>🔥 TERÇA <small>Costas + Bíceps</small></h2>
+            <h2>TERÇA <small>Inferior (Força)</small></h2>
             <ul class="exercise-list">
-                <li class="exercise-item"><span>Barra fixa (ou puxada)</span> <span class="reps">4x Falha</span></li>
-                <li class="exercise-item"><span>Remada curvada</span> <span class="reps">3x8-10</span></li>
-                <li class="exercise-item"><span>Remada baixa</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Pulldown</span> <span class="reps">3x10-12</span></li>
-                <li class="exercise-item"><span>Rosca direta</span> <span class="reps">3x8-10</span></li>
-                <li class="exercise-item"><span>Rosca martelo</span> <span class="reps">3x10</span></li>
+                <li class="exercise-item"><span>Agachamento Livre</span> <span class="reps">4x 6-8</span></li>
+                <li class="exercise-item"><span>Stiff</span> <span class="reps">3x 10</span></li>
+                <li class="exercise-item"><span>Leg Press</span> <span class="reps">3x 10-12</span></li>
+                <li class="exercise-item"><span>Cadeira Extensora</span> <span class="reps">3x 12-15</span></li>
+                <li class="exercise-item"><span>Panturrilha (Pé ou Máq)</span> <span class="reps">4x 15</span></li>
+                <li class="exercise-item"><span>Antebraço</span> <span class="reps">3x 12</span></li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>🔥 QUARTA <small>Pernas</small></h2>
+            <h2>QUARTA <small>Push (Peito/Ombro/Tríceps)</small></h2>
             <ul class="exercise-list">
-                <li class="exercise-item"><span>Agachamento livre</span> <span class="reps">4x8-10</span></li>
-                <li class="exercise-item"><span>Leg press</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Cadeira extensora</span> <span class="reps">3x12</span></li>
-                <li class="exercise-item"><span>Mesa flexora</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Panturrilha em pé</span> <span class="reps">4x12-15</span></li>
+                <li class="exercise-item"><span>Supino Inclinado</span> <span class="reps">3x 10-12</span></li>
+                <li class="exercise-item"><span>Crucifixo</span> <span class="reps">3x 12</span></li>
+                <li class="exercise-item"><span>Elevação Lateral</span> <span class="reps">4x 12-15</span></li>
+                <li class="exercise-item"><span>Tríceps Francês</span> <span class="reps">3x 10-12</span></li>
+                <li class="exercise-item"><span>Tríceps Testa</span> <span class="reps">3x 10</span></li>
             </ul>
         </div>
 
         <div class="card">
-            <h2>🔥 QUINTA <small>Ombro + Abdômen</small></h2>
+            <h2>QUINTA <small>Pull (Costas/Bíceps/Ant)</small></h2>
             <ul class="exercise-list">
-                <li class="exercise-item"><span>Desenvolvimento halter</span> <span class="reps">4x8-10</span></li>
-                <li class="exercise-item"><span>Elevação lateral</span> <span class="reps">3x10-12</span></li>
-                <li class="exercise-item"><span>Elevação frontal</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Encolhimento</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Abdominal infra</span> <span class="reps">3x15</span></li>
-                <li class="exercise-item"><span>Prancha</span> <span class="reps">3x30-60s</span></li>
+                <li class="exercise-item"><span>Pulley Frente</span> <span class="reps">3x 10-12</span></li>
+                <li class="exercise-item"><span>Remada Máquina</span> <span class="reps">3x 10-12</span></li>
+                <li class="exercise-item"><span>Crucifixo Inverso</span> <span class="reps">3x 15</span></li>
+                <li class="exercise-item"><span>Rosca Direta Barra</span> <span class="reps">3x 10</span></li>
+                <li class="exercise-item"><span>Rosca Martelo</span> <span class="reps">3x 10</span></li>
+                <li class="exercise-item"><span>Antebraço</span> <span class="reps">3x 12</span></li>
             </ul>
         </div>
 
         <div class="card" style="border-left-color: #ffcc00;">
-            <h2>🔥 SEXTA <small>Full Body</small></h2>
+            <h2>SEXTA <small>Pernas Completo</small></h2>
             <ul class="exercise-list">
-                <li class="exercise-item"><span>Supino ou flexão</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Puxada ou barra</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Agachamento leve</span> <span class="reps">3x10</span></li>
-                <li class="exercise-item"><span>Elevação lateral</span> <span class="reps">3x12</span></li>
-                <li class="exercise-item"><span>Rosca + tríceps (bi-set)</span> <span class="reps">3x</span></li>
+                <li class="exercise-item"><span>Agachamento</span> <span class="reps">3x 8-10</span></li>
+                <li class="exercise-item"><span>Cadeira Flexora</span> <span class="reps">4x 12</span></li>
+                <li class="exercise-item"><span>Afundo</span> <span class="reps">3x 10 (cada)</span></li>
+                <li class="exercise-item"><span>Extensora</span> <span class="reps">3x Falha</span></li>
+                <li class="exercise-item"><span>Panturrilha Máquina</span> <span class="reps">4x 15</span></li>
+                <li class="exercise-item"><span>Panturrilha Cavalinho</span> <span class="reps">3x 15</span></li>
             </ul>
         </div>
 
         <div class="footer-note">
-            👉 <strong>Nota:</strong> O dia de Full Body serve para estimular o corpo todo sem destruir, ajudando no ganho geral (ideal para ectomorfos).
+            👉 <strong>Dica:</strong> Foque na progressão de carga e mantenha a execução controlada. Descanse entre 60-90 segundos.
         </div>
     </div>
 
